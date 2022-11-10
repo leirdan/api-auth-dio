@@ -1,10 +1,9 @@
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
+import router from "./routes/users-routes"
 
 const app = express();
 
-app.get("/start", (req: Request, res: Response, next:NextFunction) => {
-    res.status(200).send({"best artist": "lana del rey"});
-})
+app.use(router)
 
 const PORT = 3001
 

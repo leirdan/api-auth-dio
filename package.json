@@ -1,0 +1,25 @@
+{
+  "name": "ms-authentication-dio",
+  "version": "1.0.0",
+  "description": "Desenvolver um microsserviço de autenticação em JWT e gerenciá-la durante o uso na plataforma.",
+  "main": "/build/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon build/server.js",
+    "build": "tsc --watch -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leirdan/api-auth-dio.git"
+  },
+  "author": "Andriel Vinicius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leirdan/api-auth-dio/issues"
+  },
+  "homepage": "https://github.com/leirdan/api-auth-dio#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "typescript": "^4.8.4"
+  }
+}

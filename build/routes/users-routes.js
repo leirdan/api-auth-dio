@@ -17,4 +17,9 @@ router.get("/users/:uuid", (req, res, next) => {
     const requestedUser = users.find((user) => user.uuid == uuid);
     res.status(200).json(requestedUser);
 });
+router.post("/users", (req, res, next) => {
+    const newUser = req.body;
+    users.push(newUser);
+    res.status(201).json(newUser);
+});
 exports.default = router;

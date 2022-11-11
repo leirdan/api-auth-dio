@@ -17,4 +17,10 @@ router.get("/users/:uuid", (req: Request<{uuid: string}>, res: Response, next: N
 	res.status(200).json(requestedUser)
 })
 
+router.post("/users", (req: Request, res: Response, next: NextFunction) => {
+	const newUser = req.body
+	users.push(newUser)
+	res.status(201).json(newUser)
+})
+
 export default router

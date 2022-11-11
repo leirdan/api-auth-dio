@@ -30,4 +30,8 @@ router.put("/users/:uuid", (req, res, next) => {
     users.push(alteredUser);
     res.status(200).json(userSelect);
 });
+router.delete("/users/:uuid", (req, res, next) => {
+    const uuid = req.params.uuid;
+    res.status(200).send("User deleted.");
+});
 exports.default = router;

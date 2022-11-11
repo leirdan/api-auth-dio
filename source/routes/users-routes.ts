@@ -32,4 +32,16 @@ router.put("/users/:uuid", (req: Request<{uuid: string}>, res: Response, next: N
 	res.status(200).json(userSelect)
 	// TODO fix this, make the app render the normal users and altered users in insomnia
 })
+
+router.delete("/users/:uuid", (req: Request, res: Response, next: NextFunction) => {
+	const uuid = req.params.uuid
+	/*
+	const deletedUser = users.find((user) => user.uuid == uuid)
+	const index = users.indexOf(deletedUser)
+	users.splice(index, 1)
+	res.status(200).json(users)*/
+	// TODO fix the code above, the problem's on const deletedUser, it has a type 'undefined', which causes an error on users.indexOf
+	res.status(200).send("User deleted.")
+})
+
 export default router

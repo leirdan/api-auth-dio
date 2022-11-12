@@ -6,14 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 const users = [
-    { username: "alfred", age: "64", uuid: "0" },
-    { username: "robin", age: "19", uuid: "1" }
+    { username: "alfred", age: 64, uuid: 0 },
+    { username: "robin", age: 19, uuid: 1 }
 ];
 router.get("/users", (req, res, next) => {
     res.status(200).json(users);
 });
 router.get("/users/:uuid", (req, res, next) => {
-    const uuid = req.params.uuid;
+    const uuid = Number(req.params.uuid);
     const requestedUser = users.find((user) => user.uuid == uuid);
     res.status(200).json(requestedUser);
 });
@@ -23,7 +23,7 @@ router.post("/users", (req, res, next) => {
     res.status(201).json(newUser);
 });
 router.put("/users/:uuid", (req, res, next) => {
-    const uuid = req.params.uuid;
+    const uuid = Number(req.params.uuid);
     let userSelect = users.find((user) => user.uuid == uuid);
     const alteredUser = req.body;
     userSelect = alteredUser;
@@ -31,7 +31,10 @@ router.put("/users/:uuid", (req, res, next) => {
     res.status(200).json(userSelect);
 });
 router.delete("/users/:uuid", (req, res, next) => {
-    const uuid = req.params.uuid;
-    res.status(200).send("User deleted.");
+    const uuid = Number(req.params.uuid);
+    const deletedUser = users.find((user) => user.uuid == uuid);
+    const index = users.indexOf(deletedUser);
+    users.splice(index, 1);
+    res.status(200).json(users);
 });
 exports.default = router;
